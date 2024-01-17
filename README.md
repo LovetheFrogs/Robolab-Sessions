@@ -316,14 +316,14 @@ At this point you should already have an idea about how your robot will look in 
 2. Decode the codeword using your class `HammingCode` and stored the opcode received for further processing. Note that, in case the result is **UNCORRECTABLE**, you need to re-read the line and decode it again!
 3. Extend your routine with a command to scroll to the next line. You should be able to wait for and scroll to multiple other cards after processing the first one.
 4. We want to know what our robot is doing. So, for every codeword do the following (list incomplete):
-        Print (or use TTS) the 11-bit input (e.g. “Input: ( … )”)
-        Print (or use TTS) the 6-bit output (e.g. “Output: ( … )”)
-        Print (or use TTS) exception messages (e.g. input too short, uncorrectable code, …)
+    - Print (or use TTS) the 11-bit input (e.g. “Input: ( … )”)
+    - Print (or use TTS) the 6-bit output (e.g. “Output: ( … )”)
+    - Print (or use TTS) exception messages (e.g. input too short, uncorrectable code, …)
 
 ### Task 3 (Stack Machine)
 
 1. Extend your logic so that opcodes are handed to the stack machine to be processed. Test your fully implemented robot. Make sure to check the state after each opcode and abort everything if an exception occurs.
 2. We want to know what the stack machine is executing. So, for every converted codeword do the following:
-        Print (or use TTS) the instruction shortcut (e.g. “Instruction: XYZ)
-        Print the top element of the stack if it has changed.
-        Print (or use TTS) exception messages (e.g. not enough items, invalid range, …)
+    - Print (or use TTS) the instruction shortcut (e.g. “Instruction: XYZ)
+    - Print the top element of the stack if it has changed.
+    - Print (or use TTS) exception messages (e.g. not enough items, invalid range, …)
