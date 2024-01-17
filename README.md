@@ -16,18 +16,18 @@ The code is capable of detecting a single-bit error and correct it and, by using
 
 ### Task 1
 
-Create the non-systematic generator matrix $`G'_4,8`$ and the parity-check matrix $`H'_4,8`$. Follow the rules for optimal codes from the [Hamming Code specifications](https://robolab.inf.tu-dresden.de/autumn/task/basics_hamming_code/#_construction)
+Create the non-systematic generator matrix $`G'_{4,8}`$ and the parity-check matrix $`H'_{4,8}`$. Follow the rules for optimal codes from the [Hamming Code specifications](https://robolab.inf.tu-dresden.de/autumn/task/basics_hamming_code/#_construction)
 
 1. Construct $`G'`$ by adding the binary representation in the correct order (SEC-DED).
 
 2. Each binary representation should have exactly $k$ bits with the least significant bit (LSB) at the bottom. Mark the columns containing the parity bits with $`p_1 ... p_r`$ and the data bits with $`d_1 ... d_k`$.
 
-3. Derive $`H'`$ form $`G'`$ considering the order of the data and parity bits. Take into account that you need the transpose of the corresponding row bits from $`G'`$. If not already done extend $`H'`$ to match the matrix definition $`H'_4,8`$. Mark the columns holding the parity bits with $`p_1 ... p_r`$ and the data bits with $`d_1 ... d_k`$.
+3. Derive $`H'`$ form $`G'`$ considering the order of the data and parity bits. Take into account that you need the transpose of the corresponding row bits from $`G'`$. If not already done extend $`H'`$ to match the matrix definition $`H'_{4,8}`$. Mark the columns holding the parity bits with $`p_1 ... p_r`$ and the data bits with $`d_1 ... d_k`$.
 
 ### Task 2
 
-Create the systematic generator matrix $`G_4,8`$ and the parity-check matrix $`H_4,8`$.
-Use your previously generated $`G'_4,8`$ as start matrix.
+Create the systematic generator matrix $`G_{4,8}`$ and the parity-check matrix $`H_{4,8}`$.
+Use your previously generated $`G'_{4,8}`$ as start matrix.
 
 1. Convert $`G'`$ into standard form (RREF) using **row-reduction** only.
 
@@ -37,7 +37,7 @@ Use your previously generated $`G'_4,8`$ as start matrix.
 
 ### Task 3
 
-Encode the following words $\bar a$ using the non-systematic generator matrix $`G'_4,8`$ created in Task 1:
+Encode the following words $\bar a$ using the non-systematic generator matrix $`G'_{4,8}`$ created in Task 1:
 
 1. $\bar a = (0100)$
 2. $\bar a = (1001)$
@@ -48,7 +48,7 @@ Since we use a SEC-DED code, the increased error detection capabilities are achi
 
 ### Task 4
 
-Decode the following words $\bar x$ using the systematic parity-check matrix $`H_4,8`$ created in Task 2:
+Decode the following words $\bar x$ using the systematic parity-check matrix $`H_{4,8}`$ created in Task 2:
 
 1. $\bar x = (11001101)$
 2. $\bar x = (10011001)$
@@ -60,9 +60,7 @@ You can follow these steps:
 
 1. Check if the overall parity bit $p_4$ is correct.
 
-2. Calculate the syndrome vector &\bar z$ and write down the matching pattern. Use the overall parity bit and the syndrome to check for errors following the [error pattern](https://robolab.inf.tu-dresden.de/autumn/task/basics_hamming_code/#error-pattern) table.
+2. Calculate the syndrome vector $\bar z$ and write down the matching pattern. Use the overall parity bit and the syndrome to check for errors following the [error pattern](https://robolab.inf.tu-dresden.de/autumn/task/basics_hamming_code/#error-pattern) table.
 
 3. Correct errors if possible and write down the original (source) word.
 Take into account that this might not be possible in some cases.
-
-
