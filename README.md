@@ -293,3 +293,37 @@ import unittest.mock
         # Access the recorded console output (last item: -1)
         mock_stdout.getvalue()[:-1]
 ```
+
+## Final Assingment
+
+In this assignment you’ll have to implement the missing parts for your robot and combine it with the other parts implemented earlier. This includes the implementation of a simple analogue-digital-converter for all data the color sensor outputs and the overall mechanics for moving the sensor and scrolling or driving over the bar code cards.
+
+At this point you should already have an idea about how your robot will look in the end and which parts you need in order to solve the upcoming demonstration/exam.
+
+### Basics - How to start
+
+- **The Lego Set / Brick:** Work yourself through the [Getting Started](https://robolab.inf.tu-dresden.de/autumn/getting_started/) instructions (group task). Read the information about our OS and the python libraries to use carefully
+- **The Group Repository:** You’ll be given access to a specific repository for this task. Decide intra-group on whose HammingCode implementation and whose StackMachine to use and add the implementation to your group repository. Each group member should provide one of the classes! For the implementation, the entry point is the file `main.py`. So, include all the other files necessary here.
+
+### Task 1 (The Robot)
+
+1. Construct your robot with all parts needed. You’ll need several engines to move the sensor and scroll the bar code cards. Also, you’ll need a light or color sensor for detecting and reading the codeword.
+2. Implement the different movement algorithm using the template provided in `./robolab-template/src/robot.py`. Experiment with different speed values for the motors and adjust it to your needs. See the [specifications for the bar code cards](https://robolab.inf.tu-dresden.de/autumn/task/bar_code_cards/#_dimensions) for the overall dimensions and distances between e.g. the bars.
+
+### Task 2 (Hamming Decoder)
+
+1. Implement a routine which reads a line and stores the values received by the sensor in a data structure (e.g. `Tuple`, `List`).
+2. Decode the codeword using your class `HammingCode` and stored the opcode received for further processing. Note that, in case the result is **UNCORRECTABLE**, you need to re-read the line and decode it again!
+3. Extend your routine with a command to scroll to the next line. You should be able to wait for and scroll to multiple other cards after processing the first one.
+4. We want to know what our robot is doing. So, for every codeword do the following (list incomplete):
+        Print (or use TTS) the 11-bit input (e.g. “Input: ( … )”)
+        Print (or use TTS) the 6-bit output (e.g. “Output: ( … )”)
+        Print (or use TTS) exception messages (e.g. input too short, uncorrectable code, …)
+
+### Task 3 (Stack Machine)
+
+1. Extend your logic so that opcodes are handed to the stack machine to be processed. Test your fully implemented robot. Make sure to check the state after each opcode and abort everything if an exception occurs.
+2. We want to know what the stack machine is executing. So, for every converted codeword do the following:
+        Print (or use TTS) the instruction shortcut (e.g. “Instruction: XYZ)
+        Print the top element of the stack if it has changed.
+        Print (or use TTS) exception messages (e.g. not enough items, invalid range, …)
