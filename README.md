@@ -200,3 +200,96 @@ For each binary word do the following:
 - Show the current content of the stack (or write down the string).
 
 For both sequences, what is the final content on the stack?
+
+## Fourth assingment
+
+In this assignment you’ll have to implement a (non-real-world) simple stack machine that can perform basic arithmetic operations. The implementation has to be in Python using the template provided in `./stack_machine.py`. Again, you will implement and run the program on your computer.
+
+Read about the specification of our stack machine here: [Specification](https://robolab.inf.tu-dresden.de/autumn/task/stack_machine/).
+
+### Task 1
+
+Implement the function **top()** in `./stack_machine.py`:
+
+1. Implement or define a LIFO stack that holds unsigned 8-bit integers and characters.
+2. Add the missing logic to the function top() returning the top element if there is any, or None. Take into account that the items on the stack, depending on the type, probably needs to be converted into a binary tuple beforehand.
+
+### Task 2
+
+Implement the function **do()** in `./stack_machine.py`:
+
+1. Define a representation for stack machine instructions and characters, e.g. using Enums or other classes.
+2. Add the missing logic for processing a 6-bit word (a `Tuple`). Handle the input parameter according to our specification. If the word is an operand or a character, push it to the stack. If the word is an instruction or a string operation (e.g. SPEAK), pop the operands needed from the stack and execute the instruction. Don’t forget to push the result back to the stack if there is any.
+3. Check for an overflow if required and print the `overflow` state according to our specification.
+
+Stop the execution if there are not enough operands or there was an illegal instruction, e.g. division by 0.
+
+Implement all instructions from our [specification](https://robolab.inf.tu-dresden.de/autumn/task/stack_machine/).
+
+### Task 3
+
+Now we are looking into unit-tests again and update the file `./test_stack_machine.py`.
+
+1. First, import everything from `stack_machine.py`.
+2. Implement the instance test case for `StackMachine` as you did for `HammingCode`.
+3. Write a test case for the function **top()**. Make sure that the value returned matches our definition (8-bit tuple).
+
+### Task 4
+
+In your file `./src/test_stack_machine.py`, create a test case for the function `do()` and add a check for the final result on the stack. Use asserts and pre-defined expectations (e.g. simple variable holding the value) for the check.
+
+1. Implement and execute the following sequence (taken from assignment 3 and extended). For the `SPEAK` instruction, we only print the output instead of using TTS in this assignment.
+
+$$
+\begin{matrix}
+001010 \\
+010001 \\
+010001 \\
+010110 \\
+011111 \\
+000100 \\
+011011 \\
+000100 \\
+011001 \\
+000110 \\
+011000 \\
+100010 \\
+110110 \\
+101000 \\
+110101 \\
+010000
+\end{matrix}
+$$
+
+2. What happens if there was a division by 0 or if there were not enough operands on the stack?
+
+Cover the correct error handling also with unit-tests.
+
+### Task 5
+
+To make sure your stack machine works fine, provide a test case for every instruction listed in our specification. In order to simplify your test cases you can outsource the object creation into a `setUp` function:
+
+```python
+def setUp(self):
+    self.sm = StackMachine()
+```
+
+**Hint** for catching and checking output in unit-tests: We use mocks!
+
+```python
+
+#!/usr/bin/env python3
+
+# Import both io and mock classes
+import io
+import unittest.mock
+
+...
+
+    # Put this definition before your test function (annotation) and add a parameter
+    @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
+    def test_func(self, mock_stdout):
+        # ...your implementation
+        # Access the recorded console output (last item: -1)
+        mock_stdout.getvalue()[:-1]
+```
