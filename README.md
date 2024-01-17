@@ -139,7 +139,7 @@ Now we are looking into unit-tests and update the file `./test_hamming_code.py`.
 5. Analyze the output. Does the output of *decode()* match the input of *encode()* before?
 6. Bring up at least two more test cases (one for codes being corrected and one for an uncorrectable code).
 
-## Assingment 3
+## Third assingment
 
 The third assignment will give you a better understanding of simple stack and register machines and how to perform basic arithmetic operations on them.
 For this, we will have a look at the Reverse Polish Notation (RPN) and simulate a stack machine using RPN for the operations.
@@ -171,22 +171,27 @@ Simulate the execution of the following sequences using our [stack specification
 1. Transform every instruction and operand into its binary representation beforehand.Set the MSB correctly according to our specification and always end with `STP`.
 
 2. Execute the following sequence:
-    $001010$
-    $010001$
-    $010001$
-    $010110$
-    $011111$
-    $000100$
-    $011011$
-    $000100$
-    $011001$
-    $000110$
-    $011000$
-    $100010$
-    $110110$
-    $101000$
-    $110101$
-    $010000$
+
+$$
+\begin{matrix}
+001010 \\
+010001 \\
+010001 \\
+010110 \\
+011111 \\
+000100 \\
+011011 \\
+000100 \\
+011001 \\
+000110 \\
+011000 \\
+100010 \\
+110110 \\
+101000 \\
+110101 \\
+010000
+\end{matrix}
+$$
 
 For each binary word do the following:
 
