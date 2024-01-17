@@ -138,3 +138,60 @@ Now we are looking into unit-tests and update the file `./test_hamming_code.py`.
     4. $(1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1)$
 5. Analyze the output. Does the output of *decode()* match the input of *encode()* before?
 6. Bring up at least two more test cases (one for codes being corrected and one for an uncorrectable code).
+
+## Assingment 3
+
+The third assignment will give you a better understanding of simple stack and register machines and how to perform basic arithmetic operations on them.
+For this, we will have a look at the Reverse Polish Notation (RPN) and simulate a stack machine using RPN for the operations.
+
+### Task 1
+
+Do some research on register and stack machines and answer the following questions afterwards:
+
+1. One drawback of stack machines is the need of more memory references. For a simple `ADD` operation of two integers, how many times the data cache is referenced? Write down the steps for the operation.
+2. For stack machines, we have a very compact object code (instruction set and rules) which fits in 6 bit or less. In comparison, register machines need more bits for the same instruction on the arithmetic logic unit (ALU). Explain briefly why this is the case and give an average length needed for instructions for register machines.
+3. Explain briefly how register and stack machines handle interrupts and why stack machines may have an advantage here.
+
+### Task 2
+
+Make yourself familiar with the Reverse Polish Notation (RPN).
+
+Transform the following mathematical expressions into RPN.
+Do not pre-calculate sub-expressions, keep the original operands.
+Also, **use only basic arithmetic** here (`ADD`, `SUB`, `MUL`, `DIV`).
+
+1. $4 * (7 + 8 * 9) - 1$
+2. $(96 - (4 + 44 * (3 - 1) + 7) * 25)$
+3. $(5^3 / (2 + 3)) / 5$
+
+### Task 3
+
+Simulate the execution of the following sequences using our [stack specification](https://robolab.inf.tu-dresden.de/autumn/task/stack_machine/).
+
+1. Transform every instruction and operand into its binary representation beforehand.Set the MSB correctly according to our specification and always end with `STP`.
+
+2. Execute the following sequence:
+    $001010$
+    $010001$
+    $010001$
+    $010110$
+    $011111$
+    $000100$
+    $011011$
+    $000100$
+    $011001$
+    $000110$
+    $011000$
+    $100010$
+    $110110$
+    $101000$
+    $110101$
+    $010000$
+
+For each binary word do the following:
+
+- If it is an operand or character, push it to the stack.
+- If it is an instruction (or character instruction), pop all words needed, executethe instruction, and push the result back to the stack (if there is any).
+- Show the current content of the stack (or write down the string).
+
+For both sequences, what is the final content on the stack?
